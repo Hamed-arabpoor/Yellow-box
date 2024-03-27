@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Move Red Box to Center</title>
+    <style>
+        #yellow-box {
+            width: 300px;
+            height: 300px;
+            background-color: yellow;
+            position: relative;
+        }
+        #red-box {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="yellow-box">
+        <div id="red-box"></div>
+    </div>
+
+    <button onclick="moveRedBox()">Click Me</button>
+
+    <script>
+        function moveRedBox() {
+            const redBox = document.getElementById('red-box');
+            const yellowBox = document.getElementById('yellow-box');
+            
+            const centerX = (yellowBox.offsetWidth - redBox.offsetWidth) / 2;
+            const centerY = (yellowBox.offsetHeight - redBox.offsetHeight) / 2;
+
+            redBox.style.left = centerX + 'px';
+            redBox.style.top = centerY + 'px';
+        }
+    </script>
+</body>
+</html>
